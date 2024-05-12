@@ -18,6 +18,7 @@ class UserBooking extends Model
         'phone_number',
         'surf_type_id',
         'booking_date',
+        'file_verification'
     ];
     protected $keyType = 'string';
 

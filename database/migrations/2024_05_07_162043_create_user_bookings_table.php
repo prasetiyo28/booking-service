@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer("experience");
             $table->string("country");
             $table->string("surf_type_id");
+            $table->string("file_verification");
             $table->date("booking_date");
             $table->timestamps();
         });

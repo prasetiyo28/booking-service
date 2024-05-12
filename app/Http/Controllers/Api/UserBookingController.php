@@ -44,6 +44,13 @@ class UserBookingController extends Controller
     public function store(Request $request)
     {
         $request['user_id'] = $request->user()->id;
+
+        $request->validate([
+            'file' => 'required|mimes:pdf,png,jpg,jpeg,gif,svg|max:2048',
+        ]);
+        $fileName = time().'.'.$request->file->extension();
+        $request->file->move(public_path('uploads'), $fileName);
+        $request['file_verification'] =  $fileName;
         // echo($request);
         // var_dump($request->all());
         return UserBooking::create($request->all());
